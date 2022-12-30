@@ -3,7 +3,7 @@
 This project compares usage of **non-JPA** SQL mapping (persistence) frameworks for Java (jOOQ, Spring JDBCTemplate, etc.).
 We used it to find out which DB layer would be best during development of https://www.spintrace.com
 
-### Why only non-JPA?
+#### Why only non-JPA?
 
 Well, I and my colleagues were always trying to "stick with the standard" in our projects so we used JPA in the past, but after many years of JPA usage (Hibernate mostly), we realized it's counterproductive. In most of our projects, it caused more problems than it helped to solve - especially in big projects (with lots of tables and relations). There are many reasons for those failures - but the biggest issue is that JPA implementations simply turned into bloatware. A lot of strange magic is happening inside and the complexity is so high, that you need a high-class Hibernate "mega expert" in every team so the app actually shows some performance and the code is manageable...
 
