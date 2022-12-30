@@ -3,6 +3,16 @@
 This project compares usage of **non-JPA** SQL mapping (persistence) frameworks for Java (jOOQ, Spring JDBCTemplate, etc.).
 We used it to find out which DB layer would be best during development of https://www.spintrace.com
 
+### Why only non-JPA?
+
+Well, I and my colleagues were always trying to "stick with the standard" in our projects so we used JPA in the past, but after many years of JPA usage (Hibernate mostly), we realized it's counterproductive. In most of our projects, it caused more problems than it helped to solve - especially in big projects (with lots of tables and relations). There are many reasons for those failures - but the biggest issue is that JPA implementations simply turned into bloatware. A lot of strange magic is happening inside and the complexity is so high, that you need a high-class Hibernate "mega expert" in every team so the app actually shows some performance and the code is manageable...
+
+So we dropped JPA completely, started using JDBCTemplate and discovered that we can deliver apps sooner (which was kind of surprising), they are a lot faster (thanks to effective use of DB) and much more robust... This was really relaxing and we do not plan to return to JPA at all... (yes, even for CRUD applications!) 
+
+This project aims to explore other options in the SQL mapping area than just JDBCTemplate. 
+
+## Methodology
+
 I'm not comparing performance, but rather how are these frameworks used for everyday tasks.
 
 I prepared some common scenarios, which you typically need to implement a data-centric application, and then I implemented these scenarios using various non-JPA DB layer frameworks. This project should serve
@@ -65,14 +75,6 @@ Each scenario has it's implementation in the Scenarios class. See Javadoc of [Sc
 4. Create one stored procedure by running [register_employee.sql](sql-updates/sql_functions/register_employee.sql)
 5. JUnit tests will pass when executed from a Gradle build. If you want tests to be passing even from your IDE, then [setup EBean enhancer for your IDE](http://ebean-orm.github.io/docs/setup/enhancement) 
 6. Give the scenarios a test run by running one of the test classes and enjoy :)
-
-## Why only non-JPA?
-
-Well, I and my colleagues were always trying to "stick with the standard" in our projects so we used JPA in the past, but after many years of JPA usage (Hibernate mostly), we realized it's counterproductive. In most of our projects, it caused more problems than it helped to solve - especially in big projects (with lots of tables and relations). There are many reasons for those failures - but the biggest issue is that JPA implementations simply turned into bloatware. A lot of strange magic is happening inside and the complexity is so high, that you need a high-class Hibernate "mega expert" in every team so the app actually shows some performance and the code is manageable...
-
-So we dropped JPA completely, started using JDBCTemplate and discovered that we can deliver apps sooner (which was kind of surprising), they are a lot faster (thanks to effective use of DB) and much more robust... This was really relaxing and we do not plan to return to JPA at all... (yes, even for CRUD applications!) 
-
-This project aims to explore other options in the SQL mapping area than just JDBCTemplate. 
 
 ## Conclusions/Notes
 
